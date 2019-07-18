@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>String Generator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            margin: 0;
+            min-height: 180px;
+            padding: 0;
+            width: 250px;
+        }
+
+        /* disable arrows on number inputs */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+
+        h1 {
+            font-family: 'Menlo', monospace;
+            font-size: 22px;
+            font-weight: 400;
+            margin: 0;
+            color: #2f5876
+        }
+
+        .modal-header {
+            align-items: center;
+            border-bottom: 0.5px solid #dadada;
+        }
+
+        .modal-content {
+            padding: 20px 22px;
+            font-weight: bold;
+        }
+
+        .logo {
+            padding: 16px;
+        }
+
+        #length {
+            width: 80px;
+            border-radius: 4.5px;
+            outline: none;
+        }
+
+        .label {
+            display: inline-block;
+            float: left;
+            clear: left;
+            width: 250px;
+            padding-bottom: 5px;
+
+        }
+
+        .section-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .input {
+            position: center;
+            margin-right: 5px;
+            height: 16px;
+        }
+
+
+        .button {
+            right: 0;
+            top: 0;
+            width: 80px;
+            height: 21px;
+            font-weight: bold;
+        }
+
+        textarea {
+            min-width: 200px;
+            max-width: 200px;
+            min-height: 100px;
+            max-height: 100px;
+            margin-bottom: 16px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #generate {
+            margin-left: 30px;
+        }
+
+        #copy {
+            margin-left: 126px;
+        }
+
+        .copy_result {
+            margin-top: 30px;
+            font-weight: normal;
+            font-size: 13px;
+        }
+
+        .icon-credit {
+            font-size: 9px;
+            padding: 20px 22px;
+        }
+
+        div[class="copy_result"] {
+            height: 3px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="modal-header">
+    <h1 class="logo">String Generator</h1>
+</div>
+
+
+<div class="modal-content-container">
+    <div class="modal-content">
+
+        <div class="section-container">
+            <label for="length" class="label">Length</label>
+            <input id="length" class="input" type="number" maxlength="7" placeholder="0" autofocus>
+            <button id="generate" class="button">Generate</button>
+        </div>
+
+        <br>
+        <div class="section-container">
+            <label for="result_string" class="label">Result</label>
+            <textarea id="result_string" class="input"></textarea>
+            <button id="copy" class="button">Copy</button>
+        </div>
+        <div class="copy_result">
+            <p id="copy_result" class="copy_result"></p>
+        </div>
+    </div>
+</div>
+
+<script src="jquery/jquery-3.4.1.min.js"></script>
+<script src="popup.js"></script>
+
+<!-- the site required to put this code to give credit for using the icon -->
+<div class="icon-credit">Icons made by <a href="https://www.flaticon.com/authors/twitter" title="Twitter">Twitter</a>
+    from <a
+            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+            href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0
+        BY</a></div>
+</body>
+
+</html>
+
+
+
