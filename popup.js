@@ -39,7 +39,7 @@ const generateButtonElement = document.getElementById("generate");
 generateButtonElement.addEventListener("click", processGenerateString);
 
 
-function lengthInputLimit(){
+function lengthInputLimit() {
     const lengthInputElement = document.getElementById("length");
     if (lengthInputElement.value.length > lengthInputElement.maxLength)
         lengthInputElement.value = lengthInputElement.value.slice(0, lengthInputElement.maxLength);
@@ -52,9 +52,8 @@ function processGenerateString() {
 }
 
 
-// add event listener to Copy button element
-const textareaElement = document.getElementById("copy");
-textareaElement.addEventListener("click", copyToClipboard);
+// add event listener to Generate button element
+generateButtonElement.addEventListener("click", copyToClipboard);
 
 
 function copyToClipboard() {
@@ -75,14 +74,13 @@ function copyToClipboard() {
 
 
 // use jquery to enable clicking 'Generate' button via Enter keypress
-$("#length").keypress(function(event) {
+$("#length").keypress(function (event) {
     if (event.keyCode === 13) {
         generateButtonElement.click();
     }
 });
 
 
-// TODO consider removing copy button and making generate button to copy the result
 // TODO cleanup html, CSS, js
 // TODO publish
 
