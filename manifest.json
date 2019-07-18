@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "String Generator",
-  "description": "Generate random strings of given length to use in testing.",
+  "description": "Generate random strings of specified length to use in testing.",
   "version": "1.0.0",
   "icons": {
     "128": "icons/main-icon.png"

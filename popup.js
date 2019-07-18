@@ -1,7 +1,13 @@
+const lengthInputElement = document.getElementById("length");
+const generateButtonElement = document.getElementById("generate");
+const textareaElement = document.getElementById("result_string");
+const copyResultElement = document.getElementById('copy_result');
+
+
 function generateString(stringLength) {
     /* generate a random string with provided length, adding length as prefix and '_e' as suffix */
     if (!Number.isInteger(stringLength) || stringLength < 0) {
-        throw new TypeError('String length should be a positive integer');
+        throw new TypeError('String length should be integer > 0');
     }
     const library = 'abcdefghijklmnopqrstuvwxyz';
     let randomString = '';
@@ -28,48 +34,34 @@ function generateString(stringLength) {
     }
 }
 
-
-// add event listener to Length input element
-const lengthInputElement = document.getElementById("length");
-lengthInputElement.addEventListener("input", lengthInputLimit);
-
-
-// add event listener to Generate button element
-const generateButtonElement = document.getElementById("generate");
-generateButtonElement.addEventListener("click", processGenerateString);
-
-
 function lengthInputLimit() {
-    const lengthInputElement = document.getElementById("length");
     if (lengthInputElement.value.length > lengthInputElement.maxLength)
         lengthInputElement.value = lengthInputElement.value.slice(0, lengthInputElement.maxLength);
 }
 
-
 function processGenerateString() {
     const length = parseInt(document.getElementById("length").value);
-    document.getElementById("result_string").value = generateString(length);
+    textareaElement.value = generateString(length);
 }
 
-
-// add event listener to Generate button element
-generateButtonElement.addEventListener("click", copyToClipboard);
-
-
 function copyToClipboard() {
-    const textareaElement = document.getElementById('result_string');
-    textareaElement.focus();
-    textareaElement.select();
-    const copyResultElement = document.getElementById('copy_result');
+    if (textareaElement.value) {
+        textareaElement.focus();
+        textareaElement.select();
 
-    try {
-        const successful = document.execCommand('copy');
-        const msg = successful ? 'Copied to clipboard !' : 'Failed to copy';
-        copyResultElement.innerText = msg;
-        console.log('Copying text command was ' + msg);
-    } catch (err) {
-        console.log('Oops, unable to copy');
+        try {
+            const successful = document.execCommand('copy');
+            const msg = successful ? 'Copied to clipboard !' : 'Failed to copy';
+            copyResultElement.innerText = msg;
+            console.log('Copying text command was ' + msg);
+        } catch (err) {
+            console.log('Oops, unable to copy');
+        }
     }
+}
+
+function removeCopiedResultMsg() {
+    copyResultElement.innerText = '';
 }
 
 
@@ -81,9 +73,9 @@ $("#length").keypress(function (event) {
 });
 
 
-// TODO cleanup html, CSS, js
-// TODO publish
-
-
-
+// add event listeners
+lengthInputElement.addEventListener("input", lengthInputLimit);
+lengthInputElement.addEventListener("focus", removeCopiedResultMsg);
+generateButtonElement.addEventListener("click", processGenerateString);
+generateButtonElement.addEventListener("click", copyToClipboard);
 

@@ -69,7 +69,6 @@
             height: 16px;
         }
 
-
         .button {
             right: 0;
             top: 0;
@@ -91,6 +90,11 @@
             margin-left: 30px;
         }
 
+        div[class="copy_result"] {
+            height: 3px;
+            margin-top: 30px;
+        }
+
         .copy_result {
             margin-bottom: 15px;
             margin-left: 38px;
@@ -104,11 +108,6 @@
             padding: 20px 22px;
         }
 
-        div[class="copy_result"] {
-            height: 3px;
-            margin-top: 30px;
-        }
-
     </style>
 </head>
 
@@ -117,24 +116,19 @@
     <h1 class="logo">String Generator</h1>
 </div>
 
-
-<div class="modal-content-container">
-    <div class="modal-content">
-
-        <div class="section-container">
-            <label for="length" class="label">Length</label>
-            <input id="length" class="input" type="number" maxlength="7" placeholder="0" autofocus>
-            <button id="generate" class="button">Generate</button>
-        </div>
-
-        <br>
-        <div class="section-container">
-            <label for="result_string" class="label">Result</label>
-            <textarea id="result_string" class="input"></textarea>
-        </div>
-        <div class="copy_result">
-            <p id="copy_result" class="copy_result"></p>
-        </div>
+<div class="modal-content">
+    <div class="section">
+        <label for="length" class="label">Length</label>
+        <input id="length" class="input" type="number" maxlength="7" placeholder="0" autofocus>
+        <button id="generate" class="button">Generate</button>
+    </div>
+    <br>
+    <div class="section">
+        <label for="result_string" class="label">Result</label>
+        <textarea id="result_string" class="input"></textarea>
+    </div>
+    <div class="copy_result">
+        <p id="copy_result" class="copy_result"></p>
     </div>
 </div>
 
