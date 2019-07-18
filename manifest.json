@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
   "name": "String Generator",
-  "description": "Generate random strings of specified length to use in testing.",
+  "description": "Generate random strings of specified length and copy to clipboard. The string will be prefixed with its length, end of the string will be marked with 'e'.",
+
   "version": "1.0",
   "icons": {
     "128": "icons/main-icon.png"
