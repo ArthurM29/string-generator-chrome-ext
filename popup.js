@@ -40,8 +40,14 @@ function lengthInputLimit() {
 }
 
 function processGenerateString() {
-    const length = parseInt(document.getElementById("length").value);
-    textareaElement.value = generateString(length);
+    const length = parseInt(lengthInputElement.value);
+    if (length > 0){
+        textareaElement.value = generateString(length);
+    }
+    else {
+        lengthInputElement.value = '';
+        textareaElement.value = '';
+    }
 }
 
 function copyToClipboard() {
